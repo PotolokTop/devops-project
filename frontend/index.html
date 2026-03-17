@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div>
+        <p class="eyebrow">Task Manager</p>
+        <h1>Командная работа без хаоса</h1>
+        <p class="muted">Минималистичный менеджер задач с авторизацией и PostgreSQL.</p>
+      </div>
+
+      <div class="team-card">
+        <h3>Команда</h3>
+        <ul>
+          <li>1. HTML</li>
+          <li>2. CSS</li>
+          <li>3. Frontend JS</li>
+          <li>4. Backend API</li>
+          <li>5. DB + Docker</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="auth-section card" id="authSection">
+        <div class="tabs">
+          <button class="tab active" id="showLogin">Вход</button>
+          <button class="tab" id="showRegister">Регистрация</button>
+        </div>
+
+        <form id="loginForm" class="form">
+          <h2>Вход в аккаунт</h2>
+          <input type="email" id="loginEmail" placeholder="Email" required />
+          <input type="password" id="loginPassword" placeholder="Пароль" required />
+          <button type="submit" class="primary-btn">Войти</button>
+        </form>
+
+        <form id="registerForm" class="form hidden">
+          <h2>Создать аккаунт</h2>
+          <input type="text" id="registerUsername" placeholder="Имя пользователя" required />
+          <input type="email" id="registerEmail" placeholder="Email" required />
+          <input type="password" id="registerPassword" placeholder="Пароль" required />
+          <button type="submit" class="primary-btn">Зарегистрироваться</button>
+        </form>
+
+        <p id="authMessage" class="message"></p>
+      </section>
+
+      <section class="dashboard hidden" id="dashboard">
+        <div class="dashboard-header card">
+          <div>
+            <p class="eyebrow">Личный кабинет</p>
+            <h2 id="welcomeText">Добро пожаловать</h2>
+          </div>
+          <button id="logoutBtn" class="secondary-btn">Выйти</button>
+        </div>
+
+        <div class="task-grid">
+          <div class="card">
+            <h3>Новая задача</h3>
+            <form id="taskForm" class="form compact">
+              <input type="text" id="taskTitle" placeholder="Название задачи" required />
+              <textarea id="taskDescription" placeholder="Описание"></textarea>
+              <button type="submit" class="primary-btn">Добавить</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <div class="tasks-topbar">
+              <h3>Список задач</h3>
+              <select id="filterTasks">
+                <option value="all">Все</option>
+                <option value="active">Активные</option>
+                <option value="completed">Выполненные</option>
+              </select>
+            </div>
+            <div id="taskList" class="task-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
